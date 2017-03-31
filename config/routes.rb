@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   get 'static/welcome'
   root 'static#welcome'
   get 'static/index'
+
+  get 'my_portfolio', to: "users#my_portfolio"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
