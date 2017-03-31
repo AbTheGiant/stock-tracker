@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
   devise_for :users
+  resources :user_stocks, except: [:show, :edit,:update]
+
+  
   get 'static/welcome'
   root 'static#welcome'
   get 'static/index'
