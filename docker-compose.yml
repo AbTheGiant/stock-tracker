@@ -1,0 +1,11 @@
+version: "3.5"
+
+services:
+  app:
+    build: .
+    command: /opt/start.sh
+    volumes:
+      - .:/app
+      - /opt/thapakazi/share/rubygems:/bundle_path
+
+
