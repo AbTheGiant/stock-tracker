@@ -2,12 +2,11 @@ FROM ruby
 LABEL maintainer randomdevloper
 
 ENV BUNDLE_PATH /bundle_path
+ENV APP_PATH /app
 
-ADD Gemfile /app
-ADD Gemfile.lock /app
+WORKDIR $APP_PATH
 
-RUN bundle install
+ADD Gemfile $APP_PATH
+ADD Gemfile.lock $APP_PATH
 
-ADD scripts/start.sh /opt/start.sh
-
-CMD ["bundle list"]
+RUN apt update && apt-get install -y nodejs

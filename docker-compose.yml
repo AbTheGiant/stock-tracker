@@ -3,9 +3,23 @@ version: "3.5"
 services:
   app:
     build: .
-    command: /opt/start.sh
+    command: ./scripts/start.sh
+    ports:
+      - 2048:2048
     volumes:
       - .:/app
-      - /opt/thapakazi/share/rubygems:/bundle_path
+      - /opt/rubygems:/bundle_path
+
+  database:
+    image: mysql
+    volumes:
+        - /data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_pass234fsword
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+
+    
 
 
