@@ -9,16 +9,16 @@ services:
     volumes:
       - .:/app
       - /opt/rubygems:/bundle_path
+    env_file:
+      - .env
 
   database:
     image: mysql
     volumes:
         - /data/mysql:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: my_database
-      MYSQL_USER: my_user
-      MYSQL_PASSWORD: my_pass234fsword
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    env_file:
+      - .env
+
 
     
 
